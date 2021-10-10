@@ -35,13 +35,13 @@ local digitos = {}
     digitos["kp8"] = "1111111"
     digitos["kp9"] = "1111011"
 
-local function novo(x, y)
+local function novo(x, y, c, l)
   
     local segmentos = {
-        x = x,
-        y = y,
-        c = 128,
-        l = 32,
+        x = x or 0,
+        y = y or 0,
+        c = c or 128,
+        l = l or 32,
         n = nil,
     }
 
@@ -70,15 +70,15 @@ local function novo(x, y)
         self:cor(1)
         lgrafico.rectangle("fill", self.x +self.l, self.y, self.c, self.l, 8)--A
         self:cor(2)
-        lgrafico.rectangle("fill", self.x +self.c +self.l, self.y +32, self.l, self.c, 8)--B
+        lgrafico.rectangle("fill", self.x +self.c +self.l, self.y +self.l, self.l, self.c, 8)--B
         self:cor(3)
-        lgrafico.rectangle("fill", self.x +self.c +self.l, self.y +self.c +32 *2, self.l, self.c, 8)--C
+        lgrafico.rectangle("fill", self.x +self.c +self.l, self.y +self.c +self.l *2, self.l, self.c, 8)--C
         self:cor(4)
-        lgrafico.rectangle("fill", self.x +self.l, self.y +self.c *2 +32 *2, self.c, self.l, 8)--D
+        lgrafico.rectangle("fill", self.x +self.l, self.y +self.c *2 +self.l *2, self.c, self.l, 8)--D
         self:cor(5)
-        lgrafico.rectangle("fill", self.x, self.y +self.c +32 *2, self.l, self.c, 8)--E
+        lgrafico.rectangle("fill", self.x, self.y +self.c +self.l *2, self.l, self.c, 8)--E
         self:cor(6)
-        lgrafico.rectangle("fill", self.x, self.y +32, self.l, self.c, 8)--F
+        lgrafico.rectangle("fill", self.x, self.y +self.l, self.l, self.c, 8)--F
         self:cor(7)
         lgrafico.rectangle("fill", self.x +self.l, self.y +self.c +self.l, self.c, self.l, 8)--G
     end
